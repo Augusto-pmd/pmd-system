@@ -1,0 +1,35 @@
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.menuScroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.menuScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.userBlock {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(22, 47, 127, 0.5);
+  backdrop-filter: blur(8px);
+  flex-shrink: 0;
+}
+
+.logoSection {
+  flex-shrink: 0;
+}
+

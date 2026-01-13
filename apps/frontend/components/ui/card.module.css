@@ -1,0 +1,85 @@
+/**
+ * Apple Card Styles
+ * macOS Sonoma + iOS 17 Human Interface Guidelines
+ */
+
+.card {
+  background-color: var(--apple-surface);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-apple);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  font-family: Inter, system-ui, sans-serif;
+  transition: box-shadow var(--apple-duration-medium) var(--apple-ease-out),
+              transform var(--apple-duration-medium) var(--apple-ease-out);
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
+
+.clickable:active {
+  transform: translateY(0px);
+  box-shadow: var(--shadow-apple);
+}
+
+.header {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--apple-border);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font: var(--font-card-title);
+  color: var(--apple-text-primary);
+  margin: 0;
+  padding: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+  font: var(--font-label);
+  color: var(--apple-text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.content p {
+  font: var(--font-body);
+  color: var(--apple-text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  padding: 0;
+  margin: 0;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--apple-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+

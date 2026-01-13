@@ -1,0 +1,2 @@
+Force deploy trigger - Vercel build
+Updated: 2025-01-13

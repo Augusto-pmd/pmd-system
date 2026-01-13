@@ -1,0 +1,122 @@
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font: var(--font-label);
+  color: var(--apple-text-secondary);
+  margin: 0;
+}
+
+.labelRequired::after {
+  content: " *";
+  color: rgba(255, 59, 48, 1);
+}
+
+.input {
+  height: 42px;
+  background-color: var(--apple-surface);
+  border: 1px solid var(--apple-border-strong);
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  font-size: 14px;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--apple-text-primary);
+  outline: none;
+  transition: border-color var(--apple-duration-fast) var(--apple-ease),
+              box-shadow var(--apple-duration-fast) var(--apple-ease),
+              background-color var(--apple-duration-fast) var(--apple-ease);
+}
+
+.input:focus {
+  border: 1px solid var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+.inputError {
+  border: 1px solid rgba(255, 59, 48, 1);
+}
+
+.inputError:focus {
+  border: 1px solid rgba(255, 59, 48, 1);
+  box-shadow: 0 0 0 2px rgba(255, 59, 48, 0.15);
+}
+
+.select {
+  height: 42px;
+  background-color: var(--apple-surface);
+  border: 1px solid var(--apple-border-strong);
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  font-size: 14px;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--apple-text-primary);
+  outline: none;
+  transition: border-color var(--apple-duration-fast) var(--apple-ease),
+              box-shadow var(--apple-duration-fast) var(--apple-ease),
+              background-color var(--apple-duration-fast) var(--apple-ease);
+  cursor: pointer;
+}
+
+.select:focus {
+  border: 1px solid var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+.textarea {
+  min-height: 80px;
+  background-color: var(--apple-surface);
+  border: 1px solid var(--apple-border-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--apple-text-primary);
+  outline: none;
+  transition: border-color var(--apple-duration-fast) var(--apple-ease),
+              box-shadow var(--apple-duration-fast) var(--apple-ease),
+              background-color var(--apple-duration-fast) var(--apple-ease);
+  resize: vertical;
+}
+
+.textarea:focus {
+  border: 1px solid var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.25);
+}
+
+.error {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(255, 59, 48, 1);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.formSectionTitle {
+  font: var(--font-label);
+  color: var(--apple-text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+

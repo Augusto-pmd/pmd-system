@@ -1,0 +1,52 @@
+/**
+ * Apple Design Tokens
+ * macOS Sonoma + iOS 17 Human Interface Guidelines
+ */
+
+:root {
+  /* Colors */
+  --apple-canvas: #F5F5F7;
+  --apple-surface: #FFFFFF;
+  --apple-border: rgba(0,0,0,0.08);
+  --apple-border-strong: rgba(0,0,0,0.12);
+  --apple-text-primary: #1C1C1E;
+  --apple-text-secondary: #7A7A7C;
+  --apple-text-tertiary: #A0A0A0;
+  --apple-blue: #007AFF;
+  --apple-hover: rgba(0,0,0,0.04);
+  --apple-active: rgba(0,0,0,0.06);
+  --apple-button-hover: #F2F2F2;
+  --apple-button-active: #E8E8E8;
+
+  /* PMD Accent Colors */
+  --pmd-accent: #005bbb;
+  --pmd-accent-light: rgba(0, 91, 187, 0.12);
+
+  /* Radii */
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+
+  /* Shadows */
+  --shadow-apple: 0px 8px 24px rgba(0,0,0,0.06);
+  --shadow-apple-strong: 0px 12px 32px rgba(0,0,0,0.08);
+  --shadow-apple-subtle: 0px 2px 8px rgba(0,0,0,0.04);
+
+  /* Spacing */
+  --space-xxl: 40px;
+  --space-xl: 32px;
+  --space-lg: 24px;
+  --space-md: 18px;
+  --space-sm: 12px;
+  --space-xs: 8px;
+
+  /* Typography */
+  --font-title: 600 26px Inter, system-ui, sans-serif;
+  --font-section-title: 600 24px Inter, system-ui, sans-serif;
+  --font-card-title: 500 17px Inter, system-ui, sans-serif;
+  --font-body: 400 15px Inter, system-ui, sans-serif;
+  --font-label: 500 13px Inter, system-ui, sans-serif;
+  --font-caption: 400 13px Inter, system-ui, sans-serif;
+}
+

@@ -1,0 +1,12 @@
+.loginWrapper {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: var(--apple-canvas, #F5F5F7);
+}
+

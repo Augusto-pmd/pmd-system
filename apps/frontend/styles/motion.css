@@ -1,0 +1,78 @@
+/* Apple Motion System - Human Interface Guidelines */
+
+:root {
+  /* Apple Easing Curves */
+  --apple-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --apple-ease-out: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --apple-ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --apple-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+
+  /* Apple Duration Tokens */
+  --apple-duration-fast: 120ms;
+  --apple-duration-medium: 180ms;
+  --apple-duration-slow: 240ms;
+}
+
+/* Global Interactive Element Transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Button Base Transitions */
+button,
+[role="button"] {
+  transition: background-color var(--apple-duration-fast) var(--apple-ease),
+              border-color var(--apple-duration-fast) var(--apple-ease),
+              box-shadow var(--apple-duration-fast) var(--apple-ease),
+              transform var(--apple-duration-fast) var(--apple-ease),
+              opacity var(--apple-duration-fast) var(--apple-ease);
+}
+
+/* Input Base Transitions */
+input,
+select,
+textarea {
+  transition: border-color var(--apple-duration-fast) var(--apple-ease),
+              box-shadow var(--apple-duration-fast) var(--apple-ease),
+              background-color var(--apple-duration-fast) var(--apple-ease);
+}
+
+/* Icon Base Transitions */
+svg,
+[class*="icon"],
+[class*="Icon"] {
+  transition: opacity var(--apple-duration-fast) var(--apple-ease),
+              transform var(--apple-duration-fast) var(--apple-ease);
+}
+
+/* Card Base Transitions */
+[class*="Card"],
+[class*="card"] {
+  transition: box-shadow var(--apple-duration-medium) var(--apple-ease-out),
+              transform var(--apple-duration-medium) var(--apple-ease-out);
+}
+
+/* Table Row Base Transitions */
+tr,
+[class*="TableRow"],
+[class*="table-row"] {
+  transition: background-color var(--apple-duration-fast) var(--apple-ease),
+              border-color var(--apple-duration-fast) var(--apple-ease);
+}
+
+/* Sidebar Item Base Transitions */
+[class*="SidebarItem"],
+[class*="sidebar-item"] {
+  transition: background-color var(--apple-duration-fast) var(--apple-ease),
+              transform var(--apple-duration-fast) var(--apple-ease),
+              border-color var(--apple-duration-fast) var(--apple-ease);
+}
+
+/* Modal Base Transitions */
+[class*="Modal"],
+[class*="modal"] {
+  transition: opacity var(--apple-duration-medium) var(--apple-ease-out),
+              transform var(--apple-duration-medium) var(--apple-ease-out);
+}
+

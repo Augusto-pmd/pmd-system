@@ -1,0 +1,39 @@
+/**
+ * Apple UI System - Global Reset
+ * macOS Sonoma + iOS 17 Human Interface Guidelines
+ */
+
+@import './design-tokens.css';
+
+body {
+  background: var(--apple-canvas);
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--apple-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  user-select: none;
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Remove default input styles */
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+

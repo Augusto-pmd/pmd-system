@@ -1,0 +1,4 @@
+Force deploy trigger for Vercel
+Updated: 2025-01-13
+This file forces Vercel to detect a new commit and trigger a deployment.
+

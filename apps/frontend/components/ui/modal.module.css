@@ -1,0 +1,126 @@
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn var(--apple-duration-medium) var(--apple-ease-out);
+  overflow-y: auto;
+  padding: var(--space-md);
+  pointer-events: auto;
+  will-change: opacity;
+}
+
+.modal {
+  background-color: var(--apple-surface);
+  border: 1px solid var(--apple-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-apple-strong);
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 2 * var(--space-md));
+  overflow-y: auto;
+  font-family: Inter, system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  animation: modalFadeIn var(--apple-duration-medium) var(--apple-ease-out);
+  position: relative;
+  pointer-events: auto;
+  margin: auto;
+}
+
+.modalSmall {
+  max-width: 420px;
+}
+
+.modalMedium {
+  max-width: 560px;
+}
+
+.modalLarge {
+  max-width: 672px;
+}
+
+.modalXLarge {
+  max-width: 896px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  position: relative;
+}
+
+.title {
+  font: var(--font-section-title);
+  color: var(--apple-text-primary);
+  margin: 0;
+}
+
+.subtitle {
+  font: var(--font-body);
+  color: var(--apple-text-secondary);
+  margin: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: none;
+  background-color: transparent;
+  color: var(--apple-text-primary);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: opacity var(--apple-duration-fast) var(--apple-ease);
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+.closeButton svg {
+  transition: opacity var(--apple-duration-fast) var(--apple-ease);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--apple-border);
+}
+

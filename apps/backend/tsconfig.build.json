@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "src/common/test/**/*",
+    "src/data-source.ts",
+    "src/seed.ts",
+    "src/check-passwords.ts"
+  ]
+}

@@ -1,0 +1,101 @@
+/**
+ * Apple Header Styles
+ * macOS Sonoma + iOS 17 Human Interface Guidelines
+ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: auto;
+  padding: 16px 24px;
+  background-color: var(--apple-surface);
+  border-bottom: 1px solid var(--apple-border);
+  box-shadow: var(--shadow-apple-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.title {
+  font: var(--font-section-title);
+  color: var(--apple-text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileMenuButton {
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: var(--apple-text-primary);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms ease;
+}
+
+.mobileMenuButton:hover {
+  background-color: var(--apple-hover);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--apple-text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--apple-text-secondary);
+  margin: 2px 0 0 0;
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--apple-text-primary);
+  color: var(--apple-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+

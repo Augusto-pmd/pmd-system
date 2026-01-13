@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Force light mode - disable dark mode */
+  :root {
+    color-scheme: light;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    background: var(--apple-canvas, #F5F5F7);
+  }
+  
+  body {
+    background: var(--apple-canvas, #F5F5F7);
+    color: var(--apple-text-primary, #1C1C1E);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Scrollbar hidden for sidebar */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

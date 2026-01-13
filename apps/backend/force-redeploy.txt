@@ -1,0 +1,10 @@
+Redeploy triggered: Backend full diagnostics and fixes
+Timestamp: 2024-12-19
+Changes:
+- Fixed jwt.strategy.ts: removed user.name reference (User entity only has fullName)
+- Updated main.ts: added new frontend domain to CORS
+- Updated auth.controller.ts: added refresh_token to login response
+- Verified build compiles successfully
+- Verified all modules are loaded in AppModule
+- Verified Auth endpoints are correctly configured
+- Verified Render commands (start/build) are correct
