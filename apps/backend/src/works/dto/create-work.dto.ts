@@ -10,9 +10,9 @@ import {
   Max,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Currency } from '../../common/enums/currency.enum';
-import { WorkStatus } from '../../common/enums/work-status.enum';
-import { WorkType } from '../../common/enums/work-type.enum';
+import { Currency } from '../../shared/enums/currency.enum';
+import { WorkStatus } from '../../shared/enums/work-status.enum';
+import { WorkType } from '../../shared/enums/work-type.enum';
 
 export class CreateWorkDto {
   @ApiProperty({

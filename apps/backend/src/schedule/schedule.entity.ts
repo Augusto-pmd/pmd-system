@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Work } from '../works/works.entity';
-import { ScheduleState } from '../common/enums/schedule-state.enum';
+import { ScheduleState } from '../shared/enums/schedule-state.enum';
 
 @Entity('work_schedule')
 export class Schedule {

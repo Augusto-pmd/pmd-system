@@ -17,15 +17,15 @@ import { RequestExplanationDto } from './dto/request-explanation.dto';
 import { RejectDifferenceDto } from './dto/reject-difference.dto';
 import { ManualAdjustmentDto } from './dto/manual-adjustment.dto';
 import { GetHistoryDto } from './dto/get-history.dto';
-import { CashboxStatus } from '../common/enums/cashbox-status.enum';
-import { UserRole } from '../common/enums/user-role.enum';
-import { User } from '../users/user.entity';
+import { CashboxStatus } from '../shared/enums/cashbox-status.enum';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
 import { AlertsService } from '../alerts/alerts.service';
-import { AlertType, AlertSeverity } from '../common/enums';
+import { AlertType, AlertSeverity } from '../shared/enums';
 import { CashMovement } from '../cash-movements/cash-movements.entity';
-import { CashMovementType } from '../common/enums/cash-movement-type.enum';
-import { Currency } from '../common/enums/currency.enum';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { CashMovementType } from '../shared/enums/cash-movement-type.enum';
+import { Currency } from '../shared/enums/currency.enum';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class CashboxesService {

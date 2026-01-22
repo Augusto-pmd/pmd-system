@@ -2,9 +2,9 @@ import { Controller, Post } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { User } from './users/user.entity';
-import { Role } from './roles/role.entity';
-import { UserRole } from './common/enums/user-role.enum';
+import { User } from ../core/users/user.entity';
+import { Role } from './core/roles/role.entity';
+import { UserRole } from './shared/enums/user-role.enum';
 
 @Controller('admin-tools')
 export class AdminResetController {
@@ -72,4 +72,3 @@ export class AdminResetController {
     };
   }
 }
-

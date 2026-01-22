@@ -8,7 +8,7 @@ import {
   MaxLength,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { SupplierDocumentType } from '../../common/enums/supplier-document-type.enum';
+import { SupplierDocumentType } from '../../shared/enums/supplier-document-type.enum';
 
 export class CreateSupplierDocumentDto {
   @ApiProperty({

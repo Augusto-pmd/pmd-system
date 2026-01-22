@@ -13,8 +13,8 @@ import { Cashbox } from '../cashboxes/cashboxes.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { CreateAccountingRecordDto } from './dto/create-accounting-record.dto';
 import { CloseMonthDto } from './dto/close-month.dto';
-import { AccountingType, Currency, MonthStatus, UserRole, ExpenseState, CashboxStatus } from '../common/enums';
-import { createMockUser } from '../common/test/test-helpers';
+import { AccountingType, Currency, MonthStatus, UserRole, ExpenseState, CashboxStatus } from '../shared/enums';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('AccountingService', () => {
   let service: AccountingService;

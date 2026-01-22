@@ -7,7 +7,7 @@ import {
   Min,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { CashboxStatus } from '../../common/enums/cashbox-status.enum';
+import { CashboxStatus } from '../../shared/enums/cashbox-status.enum';
 
 export class CreateCashboxDto {
   @ApiPropertyOptional({

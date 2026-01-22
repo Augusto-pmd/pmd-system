@@ -6,21 +6,21 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThan, LessThanOrEqual, Between } from 'typeorm';
 import { Alert } from './alerts.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import { CreateAlertDto } from './dto/create-alert.dto';
 import { UpdateAlertDto } from './dto/update-alert.dto';
 import { MarkReadAlertDto } from './dto/mark-read-alert.dto';
 import { AssignAlertDto } from './dto/assign-alert.dto';
 import { ResolveAlertDto } from './dto/resolve-alert.dto';
-import { AlertType, AlertSeverity, AlertStatus, UserRole } from '../common/enums';
+import { AlertType, AlertSeverity, AlertStatus, UserRole } from '../shared/enums';
 import { SupplierDocument } from '../supplier-documents/supplier-documents.entity';
 import { Expense } from '../expenses/expenses.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { Schedule } from '../schedule/schedule.entity';
-import { SupplierDocumentType } from '../common/enums/supplier-document-type.enum';
-import { ExpenseState } from '../common/enums/expense-state.enum';
-import { ScheduleState } from '../common/enums/schedule-state.enum';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { SupplierDocumentType } from '../shared/enums/supplier-document-type.enum';
+import { ExpenseState } from '../shared/enums/expense-state.enum';
+import { ScheduleState } from '../shared/enums/schedule-state.enum';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class AlertsService {

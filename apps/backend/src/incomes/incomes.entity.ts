@@ -8,9 +8,9 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Work } from '../works/works.entity';
-import { Currency } from '../common/enums/currency.enum';
-import { IncomeType } from '../common/enums/income-type.enum';
-import { PaymentMethod } from '../common/enums/payment-method.enum';
+import { Currency } from '../shared/enums/currency.enum';
+import { IncomeType } from '../shared/enums/income-type.enum';
+import { PaymentMethod } from '../shared/enums/payment-method.enum';
 
 @Entity('incomes')
 export class Income {

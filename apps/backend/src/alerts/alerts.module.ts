@@ -7,7 +7,7 @@ import { SupplierDocument } from '../supplier-documents/supplier-documents.entit
 import { Expense } from '../expenses/expenses.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { Schedule } from '../schedule/schedule.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 @Module({
   imports: [

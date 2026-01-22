@@ -8,8 +8,8 @@ import { Expense } from '../expenses/expenses.entity';
 import { Income } from '../incomes/incomes.entity';
 import { Schedule } from '../schedule/schedule.entity';
 import { ScheduleService } from '../schedule/schedule.service';
-import { UserRole } from '../common/enums/user-role.enum';
-import { createMockUser } from '../common/test/test-helpers';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { createMockUser } from '../shared/test/test-helpers';
 import { WorkStatsDto } from './dto/work-stats.dto';
 
 /**

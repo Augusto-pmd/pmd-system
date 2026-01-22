@@ -8,11 +8,11 @@ import { Repository, DataSource } from 'typeorm';
 import { CashMovement } from './cash-movements.entity';
 import { CreateCashMovementDto } from './dto/create-cash-movement.dto';
 import { UpdateCashMovementDto } from './dto/update-cash-movement.dto';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import { Cashbox } from '../cashboxes/cashboxes.entity';
-import { CashboxStatus } from '../common/enums/cashbox-status.enum';
-import { CashMovementType } from '../common/enums/cash-movement-type.enum';
-import { Currency } from '../common/enums/currency.enum';
+import { CashboxStatus } from '../shared/enums/cashbox-status.enum';
+import { CashMovementType } from '../shared/enums/cash-movement-type.enum';
+import { Currency } from '../shared/enums/currency.enum';
 
 @Injectable()
 export class CashMovementsService {

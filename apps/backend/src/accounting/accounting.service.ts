@@ -11,16 +11,16 @@ import { AccountingRecord } from './accounting.entity';
 import { CreateAccountingRecordDto } from './dto/create-accounting-record.dto';
 import { UpdateAccountingRecordDto } from './dto/update-accounting-record.dto';
 import { CloseMonthDto } from './dto/close-month.dto';
-import { MonthStatus } from '../common/enums/month-status.enum';
-import { UserRole } from '../common/enums/user-role.enum';
-import { AccountingType } from '../common/enums/accounting-type.enum';
-import { User } from '../users/user.entity';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { MonthStatus } from '../shared/enums/month-status.enum';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { AccountingType } from '../shared/enums/accounting-type.enum';
+import { User } from '../core/users/user.entity';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 import { PerceptionsReport, WithholdingsReport } from './interfaces/accounting-reports.interface';
 import { Expense } from '../expenses/expenses.entity';
-import { ExpenseState } from '../common/enums/expense-state.enum';
+import { ExpenseState } from '../shared/enums/expense-state.enum';
 import { Cashbox } from '../cashboxes/cashboxes.entity';
-import { CashboxStatus } from '../common/enums/cashbox-status.enum';
+import { CashboxStatus } from '../shared/enums/cashbox-status.enum';
 import { Contract } from '../contracts/contracts.entity';
 
 @Injectable()

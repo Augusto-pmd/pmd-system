@@ -8,10 +8,10 @@ import {
   JoinColumn,
   OneToMany,
 } from 'typeorm';
-import { SupplierStatus } from '../common/enums/supplier-status.enum';
-import { SupplierType } from '../common/enums/supplier-type.enum';
-import { FiscalCondition } from '../common/enums/fiscal-condition.enum';
-import { Organization } from '../organizations/organization.entity';
+import { SupplierStatus } from '../shared/enums/supplier-status.enum';
+import { SupplierType } from '../shared/enums/supplier-type.enum';
+import { FiscalCondition } from '../shared/enums/fiscal-condition.enum';
+import { Organization } from '../core/organizations/organization.entity';
 import { SupplierDocument } from '../supplier-documents/supplier-documents.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { Expense } from '../expenses/expenses.entity';

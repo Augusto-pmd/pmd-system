@@ -4,8 +4,8 @@ import { ExpensesService } from './expenses.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { ValidateExpenseDto } from './dto/validate-expense.dto';
-import { createMockUser } from '../common/test/test-helpers';
-import { Currency, DocumentType, ExpenseState } from '../common/enums';
+import { createMockUser } from '../shared/test/test-helpers';
+import { Currency, DocumentType, ExpenseState } from '../shared/enums';
 
 describe('ExpensesController', () => {
   let controller: ExpensesController;

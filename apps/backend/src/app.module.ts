@@ -1,3 +1,4 @@
+
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -5,12 +6,17 @@ import { databaseConfig } from './config/database.config';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { ScheduleModule as NestScheduleModule } from '@nestjs/schedule';
-import { CsrfGuard } from './common/guards/csrf.guard';
-import { XssSanitizeInterceptor } from './common/interceptors/xss-sanitize.interceptor';
-import { CommonModule } from './common/common.module';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { RolesModule } from './roles/roles.module';
+
+// --- Corrected Import Paths ---
+import { CsrfGuard } from './shared/guards/csrf.guard';
+import { XssSanitizeInterceptor } from './shared/interceptors/xss-sanitize.interceptor';
+import { SharedModule } from './shared/shared.module';
+import { AuthModule } from ../core/auth/auth.module';
+import { UsersModule } from './core/users/users.module';
+import { RolesModule } from './core/roles/roles.module';
+import { AuditModule } from './core/audit/audit.module';
+
+// --- Feature Modules (paths are correct for now) ---
 import { SuppliersModule } from './suppliers/suppliers.module';
 import { SupplierDocumentsModule } from './supplier-documents/supplier-documents.module';
 import { WorksModule } from './works/works.module';
@@ -27,7 +33,6 @@ import { CashMovementsModule } from './cash-movements/cash-movements.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { AlertsModule } from './alerts/alerts.module';
 import { AccountingModule } from './accounting/accounting.module';
-import { AuditModule } from './audit/audit.module';
 import { ExchangeRatesModule } from './exchange-rates/exchange-rates.module';
 import { OfflineModule } from './offline/offline.module';
 import { BackupModule } from './backup/backup.module';
@@ -43,43 +48,23 @@ import { HealthModule } from './health/health.module';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // Only load ScheduleModule in non-test environments
-    ...(process.env.NODE_ENV !== 'test' && process.env.JEST_WORKER_ID === undefined
-      ? [NestScheduleModule.forRoot()]
-      : []),
-    // This TypeORM module will be overridden by TestDatabaseModule in tests
+    ...(process.env.NODE_ENV !== 'test' ? [NestScheduleModule.forRoot()] : []),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: databaseConfig,
       inject: [ConfigService],
     }),
     ThrottlerModule.forRoot([{
-      ttl: 60000, // 1 minute
-      // Aumentar límite en desarrollo/test para permitir más tests E2E
-      // Producción: 10 requests/minuto, Desarrollo/Test: 100 requests/minuto
-      limit: process.env.NODE_ENV === 'production' ? 10 : 100,
+      ttl: 60000,
+      limit: process.env.NODE_ENV === 'production' ? 100 : 1000,
     }]),
-    // Only load second TypeORM module in non-test environments when DATABASE_URL is set
-    // Tests use TestDatabaseModule which overrides the first TypeORM module
-    // Note: This second module may be redundant - the first TypeOrmModule.forRootAsync already handles DATABASE_URL
-    ...(process.env.NODE_ENV !== 'test' && 
-        process.env.JEST_WORKER_ID === undefined &&
-        process.env.DATABASE_URL
-      ? [TypeOrmModule.forRoot({
-          type: 'postgres',
-          url: process.env.DATABASE_URL,
-          autoLoadEntities: true,
-          synchronize: false,
-          // Render always requires SSL when using DATABASE_URL
-          ssl: (process.env.NODE_ENV === 'production' || process.env.DATABASE_URL?.includes('sslmode=require'))
-            ? { rejectUnauthorized: false }
-            : false,
-        })]
-      : []),
-    CommonModule,
+    
+    // --- Application Modules ---
+    SharedModule,
     AuthModule,
     UsersModule,
     RolesModule,
+    AuditModule,
     SuppliersModule,
     SupplierDocumentsModule,
     WorksModule,
@@ -96,7 +81,6 @@ import { HealthModule } from './health/health.module';
     ScheduleModule,
     AlertsModule,
     AccountingModule,
-    AuditModule,
     ExchangeRatesModule,
     OfflineModule,
     BackupModule,

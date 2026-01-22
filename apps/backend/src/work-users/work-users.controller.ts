@@ -16,12 +16,12 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
-import { UserRole } from '../common/enums/user-role.enum';
+import { JwtAuthGuard } from '../shared/guards/jwt-auth.guard';
+import { RolesGuard } from '../shared/guards/roles.guard';
+import { Roles } from '../shared/decorators/roles.decorator';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { WorkUsersService } from './work-users.service';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 @ApiTags('Work Users')
 @ApiBearerAuth('JWT-auth')

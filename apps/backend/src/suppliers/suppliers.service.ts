@@ -11,13 +11,13 @@ import { Supplier } from './suppliers.entity';
 import { SupplierDocument } from '../supplier-documents/supplier-documents.entity';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
 import { UpdateSupplierDto } from './dto/update-supplier.dto';
-import { SupplierStatus } from '../common/enums/supplier-status.enum';
-import { SupplierDocumentType } from '../common/enums/supplier-document-type.enum';
-import { UserRole } from '../common/enums/user-role.enum';
-import { User } from '../users/user.entity';
+import { SupplierStatus } from '../shared/enums/supplier-status.enum';
+import { SupplierDocumentType } from '../shared/enums/supplier-document-type.enum';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
 import { AlertsService } from '../alerts/alerts.service';
-import { AlertType, AlertSeverity } from '../common/enums';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { AlertType, AlertSeverity } from '../shared/enums';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class SuppliersService {

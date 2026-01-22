@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { SuppliersController } from './suppliers.controller';
 import { SuppliersService } from './suppliers.service';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
-import { createMockUser } from '../common/test/test-helpers';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('SuppliersController', () => {
   let controller: SuppliersController;

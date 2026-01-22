@@ -5,8 +5,8 @@ import { ConfigService } from '@nestjs/config';
 import { BackupService } from './backup.service';
 import { Backup, BackupType, BackupStatus } from './backup.entity';
 import { StorageService } from '../storage/storage.service';
-import { UserRole } from '../common/enums/user-role.enum';
-import { createMockUser } from '../common/test/test-helpers';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('BackupService', () => {
   let service: BackupService;

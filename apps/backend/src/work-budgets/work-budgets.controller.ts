@@ -8,10 +8,10 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
-import { UserRole } from '../common/enums/user-role.enum';
+import { JwtAuthGuard } from '../shared/guards/jwt-auth.guard';
+import { RolesGuard } from '../shared/guards/roles.guard';
+import { Roles } from '../shared/decorators/roles.decorator';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { WorkBudgetsService } from './work-budgets.service';
 import { CreateWorkBudgetDto } from './dto/create-work-budget.dto';
 import { UpdateWorkBudgetDto } from './dto/update-work-budget.dto';

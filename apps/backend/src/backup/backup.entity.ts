@@ -6,7 +6,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 export enum BackupType {
   FULL = 'full',

@@ -7,7 +7,7 @@ import {
   IsInt,
   MaxLength,
 } from 'class-validator';
-import { ScheduleState } from '../../common/enums/schedule-state.enum';
+import { ScheduleState } from '../../shared/enums/schedule-state.enum';
 
 export class CreateScheduleDto {
   @IsUUID()

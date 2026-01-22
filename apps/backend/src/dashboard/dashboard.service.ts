@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { User } from '../users/user.entity';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { User } from '../core/users/user.entity';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class DashboardService {

@@ -1,8 +1,8 @@
 import { IsOptional, IsEnum, IsDateString, IsInt, Min, Max } from 'class-validator';
 import { Type } from 'class-transformer';
 import { ApiPropertyOptional, ApiQuery } from '@nestjs/swagger';
-import { CashMovementType } from '../../common/enums/cash-movement-type.enum';
-import { Currency } from '../../common/enums/currency.enum';
+import { CashMovementType } from '../../shared/enums/cash-movement-type.enum';
+import { Currency } from '../../shared/enums/currency.enum';
 
 export class GetHistoryDto {
   @ApiPropertyOptional({

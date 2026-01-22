@@ -8,7 +8,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { OfflineItem } from './offline-items.entity';
 import { CreateOfflineItemDto } from './dto/create-offline-item.dto';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 @Injectable()
 export class OfflineService {

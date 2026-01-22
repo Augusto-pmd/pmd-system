@@ -8,8 +8,8 @@ import {
   Min,
   MaxLength,
 } from 'class-validator';
-import { Currency } from '../../common/enums/currency.enum';
-import { CashMovementType } from '../../common/enums/cash-movement-type.enum';
+import { Currency } from '../../shared/enums/currency.enum';
+import { CashMovementType } from '../../shared/enums/cash-movement-type.enum';
 
 export class CreateCashMovementDto {
   @IsUUID()

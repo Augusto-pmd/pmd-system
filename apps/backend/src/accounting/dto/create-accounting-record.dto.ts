@@ -10,8 +10,8 @@ import {
   Max,
   MaxLength,
 } from 'class-validator';
-import { AccountingType } from '../../common/enums/accounting-type.enum';
-import { Currency } from '../../common/enums/currency.enum';
+import { AccountingType } from '../../shared/enums/accounting-type.enum';
+import { Currency } from '../../shared/enums/currency.enum';
 
 export class CreateAccountingRecordDto {
   @IsEnum(AccountingType)

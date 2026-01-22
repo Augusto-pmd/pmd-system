@@ -4,13 +4,13 @@ import { Repository } from 'typeorm';
 import { Income } from './incomes.entity';
 import { Work } from '../works/works.entity';
 import { AccountingRecord } from '../accounting/accounting.entity';
-import { AccountingType } from '../common/enums/accounting-type.enum';
+import { AccountingType } from '../shared/enums/accounting-type.enum';
 import { CreateIncomeDto } from './dto/create-income.dto';
 import { UpdateIncomeDto } from './dto/update-income.dto';
-import { User } from '../users/user.entity';
-import { UserRole } from '../common/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { WorksService } from '../works/works.service';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class IncomesService {

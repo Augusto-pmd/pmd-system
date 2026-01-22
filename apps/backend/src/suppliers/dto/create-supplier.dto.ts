@@ -7,10 +7,10 @@ import {
   MaxLength,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { SupplierStatus } from '../../common/enums/supplier-status.enum';
-import { SupplierType } from '../../common/enums/supplier-type.enum';
-import { FiscalCondition } from '../../common/enums/fiscal-condition.enum';
-import { IsCuit } from '../../common/validators/cuit.validator';
+import { SupplierStatus } from '../../shared/enums/supplier-status.enum';
+import { SupplierType } from '../../shared/enums/supplier-type.enum';
+import { FiscalCondition } from '../../shared/enums/fiscal-condition.enum';
+import { IsCuit } from '../../shared/validators/cuit.validator';
 
 export class CreateSupplierDto {
   @ApiProperty({

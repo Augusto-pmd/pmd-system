@@ -7,14 +7,14 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { AccountingType } from '../common/enums/accounting-type.enum';
-import { Currency } from '../common/enums/currency.enum';
-import { Organization } from '../organizations/organization.entity';
+import { AccountingType } from '../shared/enums/accounting-type.enum';
+import { Currency } from '../shared/enums/currency.enum';
+import { Organization } from '../core/organizations/organization.entity';
 import { Expense } from '../expenses/expenses.entity';
 import { Income } from '../incomes/incomes.entity';
 import { Work } from '../works/works.entity';
 import { Supplier } from '../suppliers/suppliers.entity';
-import { MonthStatus } from '../common/enums/month-status.enum';
+import { MonthStatus } from '../shared/enums/month-status.enum';
 
 @Entity('accounting_records')
 export class AccountingRecord {

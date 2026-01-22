@@ -1,6 +1,6 @@
 import { IsEnum, IsString, IsOptional, MaxLength } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { ExpenseState } from '../../common/enums/expense-state.enum';
+import { ExpenseState } from '../../shared/enums/expense-state.enum';
 
 export class ValidateExpenseDto {
   @ApiProperty({

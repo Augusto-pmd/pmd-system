@@ -7,10 +7,10 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { AlertType } from '../common/enums/alert-type.enum';
-import { AlertSeverity } from '../common/enums/alert-severity.enum';
-import { AlertStatus } from '../common/enums/alert-status.enum';
-import { User } from '../users/user.entity';
+import { AlertType } from '../shared/enums/alert-type.enum';
+import { AlertSeverity } from '../shared/enums/alert-severity.enum';
+import { AlertStatus } from '../shared/enums/alert-status.enum';
+import { User } from '../core/users/user.entity';
 import { Work } from '../works/works.entity';
 import { Supplier } from '../suppliers/suppliers.entity';
 import { Expense } from '../expenses/expenses.entity';

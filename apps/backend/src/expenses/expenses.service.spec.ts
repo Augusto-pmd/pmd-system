@@ -16,7 +16,7 @@ import { WorksService } from '../works/works.service';
 import { CalculationsService } from '../accounting/calculations.service';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { ValidateExpenseDto } from './dto/validate-expense.dto';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import {
   Currency,
   ExpenseState,
@@ -25,8 +25,8 @@ import {
   WorkStatus,
   SupplierStatus,
   SupplierDocumentType,
-} from '../common/enums';
-import { createMockUser } from '../common/test/test-helpers';
+} from '../shared/enums';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('ExpensesService', () => {
   let service: ExpensesService;

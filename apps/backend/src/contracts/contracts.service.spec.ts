@@ -9,8 +9,8 @@ import { Work } from '../works/works.entity';
 import { AlertsService } from '../alerts/alerts.service';
 import { CreateContractDto } from './dto/create-contract.dto';
 import { UpdateContractDto } from './dto/update-contract.dto';
-import { Currency, UserRole, SupplierStatus } from '../common/enums';
-import { createMockUser } from '../common/test/test-helpers';
+import { Currency, UserRole, SupplierStatus } from '../shared/enums';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('ContractsService', () => {
   let service: ContractsService;

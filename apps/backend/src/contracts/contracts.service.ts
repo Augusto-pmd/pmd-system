@@ -10,13 +10,13 @@ import { Repository } from 'typeorm';
 import { Contract } from './contracts.entity';
 import { CreateContractDto } from './dto/create-contract.dto';
 import { UpdateContractDto } from './dto/update-contract.dto';
-import { UserRole } from '../common/enums/user-role.enum';
-import { User } from '../users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
 import { AlertsService } from '../alerts/alerts.service';
-import { AlertType, AlertSeverity, ContractStatus } from '../common/enums';
+import { AlertType, AlertSeverity, ContractStatus } from '../shared/enums';
 import { Supplier } from '../suppliers/suppliers.entity';
 import { Work } from '../works/works.entity';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 
 @Injectable()
 export class ContractsService {

@@ -4,7 +4,7 @@ import { CashboxesService } from './cashboxes.service';
 import { CreateCashboxDto } from './dto/create-cashbox.dto';
 import { CloseCashboxDto } from './dto/close-cashbox.dto';
 import { ApproveDifferenceDto } from './dto/approve-difference.dto';
-import { createMockUser } from '../common/test/test-helpers';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('CashboxesController', () => {
   let controller: CashboxesController;

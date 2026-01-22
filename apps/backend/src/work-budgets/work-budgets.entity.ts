@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Work } from '../works/works.entity';
-import { BudgetType } from '../common/enums/budget-type.enum';
+import { BudgetType } from '../shared/enums/budget-type.enum';
 
 @Entity('work_budgets')
 export class WorkBudget {

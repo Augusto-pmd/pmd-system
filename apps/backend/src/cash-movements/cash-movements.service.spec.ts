@@ -9,10 +9,10 @@ import { CashMovementsService } from './cash-movements.service';
 import { CashMovement } from './cash-movements.entity';
 import { Cashbox } from '../cashboxes/cashboxes.entity';
 import { CreateCashMovementDto } from './dto/create-cash-movement.dto';
-import { CashboxStatus } from '../common/enums/cashbox-status.enum';
-import { CashMovementType } from '../common/enums/cash-movement-type.enum';
-import { Currency } from '../common/enums/currency.enum';
-import { createMockUser } from '../common/test/test-helpers';
+import { CashboxStatus } from '../shared/enums/cashbox-status.enum';
+import { CashMovementType } from '../shared/enums/cash-movement-type.enum';
+import { Currency } from '../shared/enums/currency.enum';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('CashMovementsService', () => {
   let service: CashMovementsService;

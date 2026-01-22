@@ -10,9 +10,9 @@ import {
 import { Work } from '../works/works.entity';
 import { Supplier } from '../suppliers/suppliers.entity';
 import { Rubric } from '../rubrics/rubrics.entity';
-import { User } from '../users/user.entity';
-import { Currency } from '../common/enums/currency.enum';
-import { ContractStatus } from '../common/enums/contract-status.enum';
+import { User } from '../core/users/user.entity';
+import { Currency } from '../shared/enums/currency.enum';
+import { ContractStatus } from '../shared/enums/contract-status.enum';
 
 @Entity('contracts')
 export class Contract {

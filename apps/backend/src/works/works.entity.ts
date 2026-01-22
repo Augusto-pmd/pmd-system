@@ -8,11 +8,11 @@ import {
   JoinColumn,
   OneToMany,
 } from 'typeorm';
-import { User } from '../users/user.entity';
-import { Organization } from '../organizations/organization.entity';
-import { Currency } from '../common/enums/currency.enum';
-import { WorkStatus } from '../common/enums/work-status.enum';
-import { WorkType } from '../common/enums/work-type.enum';
+import { User } from '../core/users/user.entity';
+import { Organization } from '../core/organizations/organization.entity';
+import { Currency } from '../shared/enums/currency.enum';
+import { WorkStatus } from '../shared/enums/work-status.enum';
+import { WorkType } from '../shared/enums/work-type.enum';
 import { WorkBudget } from '../work-budgets/work-budgets.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { Expense } from '../expenses/expenses.entity';

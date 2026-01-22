@@ -4,9 +4,9 @@ import { Repository } from 'typeorm';
 import { Schedule } from './schedule.entity';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
-import { UserRole } from '../common/enums/user-role.enum';
-import { ScheduleState } from '../common/enums/schedule-state.enum';
-import { User } from '../users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { ScheduleState } from '../shared/enums/schedule-state.enum';
+import { User } from '../core/users/user.entity';
 import { Work } from '../works/works.entity';
 import { WorksService } from '../works/works.service';
 

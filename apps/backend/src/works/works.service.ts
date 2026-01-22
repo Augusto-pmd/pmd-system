@@ -16,12 +16,12 @@ import { Schedule } from '../schedule/schedule.entity';
 import { CreateWorkDto } from './dto/create-work.dto';
 import { UpdateWorkDto } from './dto/update-work.dto';
 import { WorkStatsDto } from './dto/work-stats.dto';
-import { User } from '../users/user.entity';
-import { UserRole } from '../common/enums/user-role.enum';
-import { ExpenseState } from '../common/enums/expense-state.enum';
-import { WorkStatus } from '../common/enums/work-status.enum';
-import { ScheduleState } from '../common/enums/schedule-state.enum';
-import { getOrganizationId } from '../common/helpers/get-organization-id.helper';
+import { User } from '../core/users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { ExpenseState } from '../shared/enums/expense-state.enum';
+import { WorkStatus } from '../shared/enums/work-status.enum';
+import { ScheduleState } from '../shared/enums/schedule-state.enum';
+import { getOrganizationId } from '../shared/helpers/get-organization-id.helper';
 import { ScheduleService } from '../schedule/schedule.service';
 
 @Injectable()

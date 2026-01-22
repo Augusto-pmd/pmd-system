@@ -21,10 +21,10 @@ import {
 } from '@nestjs/swagger';
 import { Response } from 'express';
 import * as path from 'path';
-import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
-import { UserRole } from '../common/enums/user-role.enum';
+import { JwtAuthGuard } from '../shared/guards/jwt-auth.guard';
+import { RolesGuard } from '../shared/guards/roles.guard';
+import { Roles } from '../shared/decorators/roles.decorator';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { BackupService, BackupStatusResponse } from './backup.service';
 import { CreateBackupDto, CleanupBackupsDto } from './dto/create-backup.dto';
 import { BackupType } from './backup.entity';

@@ -3,8 +3,8 @@ import { ExchangeRatesController } from './exchange-rates.controller';
 import { ExchangeRatesService } from './exchange-rates.service';
 import { CreateExchangeRateDto } from './dto/create-exchange-rate.dto';
 import { UpdateExchangeRateDto } from './dto/update-exchange-rate.dto';
-import { UserRole } from '../common/enums/user-role.enum';
-import { createMockUser } from '../common/test/test-helpers';
+import { UserRole } from '../shared/enums/user-role.enum';
+import { createMockUser } from '../shared/test/test-helpers';
 import {
   ConflictException,
   NotFoundException,

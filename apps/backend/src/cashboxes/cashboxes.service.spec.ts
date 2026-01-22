@@ -8,16 +8,16 @@ import {
 } from '@nestjs/common';
 import { CashboxesService } from './cashboxes.service';
 import { Cashbox } from './cashboxes.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import { CashMovement } from '../cash-movements/cash-movements.entity';
 import { AlertsService } from '../alerts/alerts.service';
 import { CreateCashboxDto } from './dto/create-cashbox.dto';
 import { CloseCashboxDto } from './dto/close-cashbox.dto';
 import { ApproveDifferenceDto } from './dto/approve-difference.dto';
-import { CashboxStatus, UserRole } from '../common/enums';
-import { CashMovementType } from '../common/enums/cash-movement-type.enum';
-import { Currency } from '../common/enums/currency.enum';
-import { createMockUser } from '../common/test/test-helpers';
+import { CashboxStatus, UserRole } from '../shared/enums';
+import { CashMovementType } from '../shared/enums/cash-movement-type.enum';
+import { Currency } from '../shared/enums/currency.enum';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('CashboxesService', () => {
   let service: CashboxesService;

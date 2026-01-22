@@ -7,11 +7,11 @@ import { Expense } from '../expenses/expenses.entity';
 import { Income } from '../incomes/incomes.entity';
 import { Schedule } from '../schedule/schedule.entity';
 import { ScheduleService } from '../schedule/schedule.service';
-import { ExpenseState } from '../common/enums/expense-state.enum';
-import { WorkStatus } from '../common/enums/work-status.enum';
-import { UserRole } from '../common/enums/user-role.enum';
+import { ExpenseState } from '../shared/enums/expense-state.enum';
+import { WorkStatus } from '../shared/enums/work-status.enum';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { ForbiddenException, BadRequestException } from '@nestjs/common';
-import { createMockUser } from '../common/test/test-helpers';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('WorksService', () => {
   let service: WorksService;

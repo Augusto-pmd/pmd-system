@@ -11,8 +11,8 @@ import {
   ValidateIf,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Currency } from '../../common/enums/currency.enum';
-import { ContractStatus } from '../../common/enums/contract-status.enum';
+import { Currency } from '../../shared/enums/currency.enum';
+import { ContractStatus } from '../../shared/enums/contract-status.enum';
 
 export class CreateContractDto {
   @ApiProperty({

@@ -7,7 +7,7 @@ import {
   JoinColumn,
   Index,
 } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 @Entity('exchange_rates')
 @Index(['date'], { unique: true })

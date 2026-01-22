@@ -1,6 +1,6 @@
 import { IsNumber, IsEnum, IsOptional, Min, IsString, MaxLength } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Currency } from '../../common/enums/currency.enum';
+import { Currency } from '../../shared/enums/currency.enum';
 
 export class ManualAdjustmentDto {
   @ApiProperty({

@@ -9,8 +9,8 @@ import { Repository } from 'typeorm';
 import { ExchangeRate } from './exchange-rates.entity';
 import { CreateExchangeRateDto } from './dto/create-exchange-rate.dto';
 import { UpdateExchangeRateDto } from './dto/update-exchange-rate.dto';
-import { User } from '../users/user.entity';
-import { UserRole } from '../common/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
 
 @Injectable()
 export class ExchangeRatesService {

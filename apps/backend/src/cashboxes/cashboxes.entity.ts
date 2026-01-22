@@ -8,8 +8,8 @@ import {
   JoinColumn,
   OneToMany,
 } from 'typeorm';
-import { User } from '../users/user.entity';
-import { CashboxStatus } from '../common/enums/cashbox-status.enum';
+import { User } from '../core/users/user.entity';
+import { CashboxStatus } from '../shared/enums/cashbox-status.enum';
 import { CashMovement } from '../cash-movements/cash-movements.entity';
 
 @Entity('cashboxes')

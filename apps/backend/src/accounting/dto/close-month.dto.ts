@@ -1,6 +1,6 @@
 import { IsInt, IsEnum, Min, Max } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { MonthStatus } from '../../common/enums/month-status.enum';
+import { MonthStatus } from '../../shared/enums/month-status.enum';
 
 export class CloseMonthDto {
   @ApiProperty({

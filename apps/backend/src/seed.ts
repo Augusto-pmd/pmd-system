@@ -1,10 +1,10 @@
 import { DataSource } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { config } from 'dotenv';
-import { User } from './users/user.entity';
+import { User } from ../core/users/user.entity';
 import { Role } from './roles/role.entity';
-import { Organization } from './organizations/organization.entity';
-import { UserRole } from './common/enums/user-role.enum';
+import { Organization } from ../core/organizations/organization.entity';
+import { UserRole } from ../shared/enums/user-role.enum';
 import dataSource from './data-source';
 
 // Load environment variables

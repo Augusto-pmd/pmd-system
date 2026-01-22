@@ -11,8 +11,8 @@ import { Supplier } from './suppliers.entity';
 import { SupplierDocument } from '../supplier-documents/supplier-documents.entity';
 import { AlertsService } from '../alerts/alerts.service';
 import { CreateSupplierDto } from './dto/create-supplier.dto';
-import { SupplierStatus, UserRole, SupplierDocumentType, AlertType, AlertSeverity } from '../common/enums';
-import { createMockUser } from '../common/test/test-helpers';
+import { SupplierStatus, UserRole, SupplierDocumentType, AlertType, AlertSeverity } from '../shared/enums';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('SuppliersService', () => {
   let service: SuppliersService;

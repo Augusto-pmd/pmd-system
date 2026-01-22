@@ -4,14 +4,14 @@ import { Repository, LessThan } from 'typeorm';
 import { NotFoundException, ForbiddenException } from '@nestjs/common';
 import { AlertsService } from './alerts.service';
 import { Alert } from './alerts.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import { SupplierDocument } from '../supplier-documents/supplier-documents.entity';
 import { Expense } from '../expenses/expenses.entity';
 import { Contract } from '../contracts/contracts.entity';
 import { Schedule } from '../schedule/schedule.entity';
 import { CreateAlertDto } from './dto/create-alert.dto';
-import { AlertType, AlertSeverity, ExpenseState, ScheduleState, SupplierDocumentType, UserRole } from '../common/enums';
-import { createMockUser } from '../common/test/test-helpers';
+import { AlertType, AlertSeverity, ExpenseState, ScheduleState, SupplierDocumentType, UserRole } from '../shared/enums';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('AlertsService', () => {
   let service: AlertsService;

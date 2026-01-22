@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { SkipThrottle } from '@nestjs/throttler';
-import { SkipCsrf } from '../common/guards/csrf.guard';
+import { SkipCsrf } from '../shared/guards/csrf.guard';
 
 @ApiTags('Health')
 @Controller('health')

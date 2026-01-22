@@ -11,9 +11,9 @@ import {
   ValidateIf,
 } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Currency } from '../../common/enums/currency.enum';
-import { DocumentType } from '../../common/enums/document-type.enum';
-import { ExpenseState } from '../../common/enums/expense-state.enum';
+import { Currency } from '../../shared/enums/currency.enum';
+import { DocumentType } from '../../shared/enums/document-type.enum';
+import { ExpenseState } from '../../shared/enums/expense-state.enum';
 
 export class CreateExpenseDto {
   @ApiProperty({

@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { FiscalCondition } from '../common/enums/fiscal-condition.enum';
-import { DocumentType } from '../common/enums/document-type.enum';
+import { FiscalCondition } from '../shared/enums/fiscal-condition.enum';
+import { DocumentType } from '../shared/enums/document-type.enum';
 
 export interface TaxCalculations {
   vat_perception: number;

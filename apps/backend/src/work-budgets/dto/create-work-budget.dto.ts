@@ -8,7 +8,7 @@ import {
   MaxLength,
   Min,
 } from 'class-validator';
-import { BudgetType } from '../../common/enums/budget-type.enum';
+import { BudgetType } from '../../shared/enums/budget-type.enum';
 
 export class CreateWorkBudgetDto {
   @IsUUID()

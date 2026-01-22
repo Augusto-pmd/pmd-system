@@ -1,58 +1,39 @@
-# Stage 1: Build
-FROM node:22-alpine AS builder
 
-WORKDIR /app
+# ---- Base ----
+# Use a specific, stable version of Node.js for reproducibility.
+FROM node:22-alpine AS base
+WORKDIR /usr/src/app
 
-# Copiar archivos de dependencias
-COPY package.json package-lock.json* ./
+# ---- Builder ----
+# This stage builds the application. It includes dev dependencies and source code.
+FROM base AS builder
 
-# Instalar todas las dependencias (incluidas dev para build)
+# Copy package files and install all dependencies (including devDependencies)
+COPY package*.json ./
 RUN npm ci
 
-# Copiar código fuente
+# Copy the rest of the source code
 COPY . .
 
-# Build de TypeScript
-RUN npm run build
+# Build the NestJS application (compiles TypeScript to JavaScript)
+# We cd into the backend directory and run the build script from there.
+RUN cd apps/backend && npm run build
 
-# Stage 2: Production
-FROM node:22-alpine AS production
 
-# Instalar dumb-init para mejor manejo de señales
-RUN apk add --no-cache dumb-init
+# ---- Production ----
+# This is the final, lean image that will be deployed.
+FROM base AS production
 
-WORKDIR /app
+# Copy package files and install only production dependencies
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Copiar package files
-COPY package.json package-lock.json* ./
+# Copy the compiled application from the builder stage
+# and other necessary assets like migrations.
+COPY --from=builder /usr/src/app/dist ./dist
+COPY --from=builder /usr/src/app/apps/backend/src/migrations ./src/migrations
 
-# Instalar solo dependencias de producción + herramientas necesarias para migraciones
-RUN npm ci --only=production && \
-    npm install --save-dev typeorm ts-node typescript && \
-    npm cache clean --force
-
-# Copiar build desde stage anterior
-COPY --from=builder /app/dist ./dist
-
-# Copiar archivos necesarios para migraciones
-COPY --from=builder /app/src ./src
-COPY --from=builder /app/tsconfig.json ./
-COPY --from=builder /app/nest-cli.json ./
-
-# Copiar scripts desde el builder (asegura consistencia con el build)
-COPY --from=builder /app/scripts ./scripts
-
-# Crear usuario no-root y establecer permisos
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S appuser -u 1001 && \
-    chmod +x ./scripts/*.sh ./scripts/*.js 2>/dev/null || true && \
-    chown -R appuser:nodejs /app
-
-USER appuser
-
-EXPOSE 5000
-
-# Usar dumb-init para mejor manejo de señales
-ENTRYPOINT ["dumb-init", "--"]
-
-CMD ["./scripts/start.sh"]
+# The command to run when the container starts.
+# It first attempts to run database migrations, and if successful, starts the application.
+# This ensures the database is up-to-date before the app starts.
+CMD ["sh", "-c", "npm run typeorm:migration:run -- --dataSource=dist/data-source.js && node dist/apps/backend/main"]

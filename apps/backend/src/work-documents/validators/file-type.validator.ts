@@ -1,5 +1,4 @@
 import { FileValidator } from '@nestjs/common';
-import { IFile } from '@nestjs/common/pipes/file/interfaces';
 
 export class WorkDocumentFileTypeValidator extends FileValidator<{ fileType: RegExp }> {
   // Mapeo de extensiones a MIME types permitidos
@@ -39,21 +38,17 @@ export class WorkDocumentFileTypeValidator extends FileValidator<{ fileType: Reg
     return `File type must be one of: ${this.allowedExtensions.join(', ')}`;
   }
 
-  isValid(file: IFile | Express.Multer.File): boolean {
+  isValid(file: Express.Multer.File): boolean {
     if (!file) {
       return false;
     }
 
     // Validar por extensión (prioridad)
-    // Express.Multer.File tiene originalname, IFile puede tener diferentes propiedades
-    // Usar casting a any para acceder a propiedades que pueden no estar en el tipo
     const fileAny = file as any;
     const fileName = fileAny.originalname || fileAny.name || fileAny.filename || '';
     const extension = fileName.split('.').pop()?.toLowerCase();
     
     if (extension && this.allowedExtensions.includes(extension)) {
-      // Si la extensión es válida, aceptar el archivo
-      // (el MIME type puede variar según el navegador/sistema, así que confiamos en la extensión)
       return true;
     }
 
@@ -65,4 +60,3 @@ export class WorkDocumentFileTypeValidator extends FileValidator<{ fileType: Reg
     return false;
   }
 }
-

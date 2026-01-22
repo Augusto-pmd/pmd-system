@@ -14,8 +14,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Backup, BackupType, BackupStatus } from './backup.entity';
 import { StorageService } from '../storage/storage.service';
-import { User } from '../users/user.entity';
-import { UserRole } from '../common/enums/user-role.enum';
+import { User } from '../core/users/user.entity';
+import { UserRole } from '../shared/enums/user-role.enum';
 
 const execAsync = promisify(exec);
 

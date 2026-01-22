@@ -6,7 +6,7 @@ import { Supplier } from '../suppliers/suppliers.entity';
 import { CreateSupplierDocumentDto } from './dto/create-supplier-document.dto';
 import { UpdateSupplierDocumentDto } from './dto/update-supplier-document.dto';
 import { SuppliersService } from '../suppliers/suppliers.service';
-import { SupplierDocumentType } from '../common/enums/supplier-document-type.enum';
+import { SupplierDocumentType } from '../shared/enums/supplier-document-type.enum';
 
 @Injectable()
 export class SupplierDocumentsService {

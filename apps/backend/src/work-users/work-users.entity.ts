@@ -8,7 +8,7 @@ import {
   Unique,
 } from 'typeorm';
 import { Work } from '../works/works.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 @Entity('work_users')
 @Unique(['work_id', 'user_id'])

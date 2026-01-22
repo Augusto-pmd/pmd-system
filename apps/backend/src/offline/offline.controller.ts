@@ -18,10 +18,10 @@ import {
   ApiParam,
   ApiBody,
 } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
-import { RolesGuard } from '../common/guards/roles.guard';
-import { Roles } from '../common/decorators/roles.decorator';
-import { UserRole } from '../common/enums/user-role.enum';
+import { JwtAuthGuard } from '../shared/guards/jwt-auth.guard';
+import { RolesGuard } from '../shared/guards/roles.guard';
+import { Roles } from '../shared/decorators/roles.decorator';
+import { UserRole } from '../shared/enums/user-role.enum';
 import { OfflineService } from './offline.service';
 import { CreateOfflineItemDto } from './dto/create-offline-item.dto';
 import { ExpensesService } from '../expenses/expenses.service';
@@ -36,7 +36,7 @@ import { CreateWorkDto } from '../works/dto/create-work.dto';
 import { CreateContractDto } from '../contracts/dto/create-contract.dto';
 import { CreateSupplierDto } from '../suppliers/dto/create-supplier.dto';
 import { CreateCashMovementDto } from '../cash-movements/dto/create-cash-movement.dto';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 import { Logger } from '@nestjs/common';
 
 @ApiTags('Offline')

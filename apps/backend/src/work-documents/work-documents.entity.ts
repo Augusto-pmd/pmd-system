@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Work } from '../works/works.entity';
-import { User } from '../users/user.entity';
+import { User } from '../core/users/user.entity';
 
 export enum WorkDocumentType {
   CONTRACT = 'contract',

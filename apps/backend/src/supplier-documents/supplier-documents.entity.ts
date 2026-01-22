@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Supplier } from '../suppliers/suppliers.entity';
-import { SupplierDocumentType } from '../common/enums/supplier-document-type.enum';
+import { SupplierDocumentType } from '../shared/enums/supplier-document-type.enum';
 
 @Entity('supplier_documents')
 export class SupplierDocument {

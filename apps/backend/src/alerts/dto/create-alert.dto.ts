@@ -6,8 +6,8 @@ import {
   IsObject,
   MaxLength,
 } from 'class-validator';
-import { AlertType } from '../../common/enums/alert-type.enum';
-import { AlertSeverity } from '../../common/enums/alert-severity.enum';
+import { AlertType } from '../../shared/enums/alert-type.enum';
+import { AlertSeverity } from '../../shared/enums/alert-severity.enum';
 
 export class CreateAlertDto {
   @IsEnum(AlertType)

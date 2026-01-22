@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { NotFoundException, BadRequestException } from '@nestjs/common';
 import { OfflineService } from './offline.service';
 import { OfflineItem } from './offline-items.entity';
-import { createMockUser } from '../common/test/test-helpers';
+import { createMockUser } from '../shared/test/test-helpers';
 
 describe('OfflineService', () => {
   let service: OfflineService;
