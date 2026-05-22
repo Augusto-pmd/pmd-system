@@ -70,103 +70,90 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: false,
       status: "unauthenticated" as AuthStatus,
 
-      // --- LOGIN ---
+      // --- LOGIN (versión simplificada anti-falla) ---
       login: async (email: string, password: string): Promise<AuthUser | null> => {
-        // Set status to pending at start
         set((state) => ({ ...state, status: "pending" as AuthStatus }));
-        
         try {
-          const response = await loginService(email, password);
-          
-          if (!response) {
-            set((state) => ({
-              ...state,
-              user: null,
-              token: null,
-              refreshToken: null,
-              isAuthenticated: false,
-              status: "unauthenticated" as AuthStatus,
-            }));
-            return null;
-          }
-
-          const { user, access_token, refresh_token } = response;
-
-          if (!user || !access_token) {
-            set((state) => ({
-              ...state,
-              user: null,
-              token: null,
-              refreshToken: null,
-              isAuthenticated: false,
-              status: "unauthenticated" as AuthStatus,
-            }));
-            return null;
-          }
-
-
-          // Normalize user
-          const normalizedUser = normalizeUserWithDefaults(user);
-          if (!normalizedUser) {
-            set((state) => ({
-              ...state,
-              user: null,
-              token: null,
-              refreshToken: null,
-              isAuthenticated: false,
-              status: "unauthenticated" as AuthStatus,
-            }));
-            return null;
-          }
-
-          // Validar permisos críticos - solo warnings y errores
-          if (process.env.NODE_ENV === "development" && normalizedUser.role?.permissions) {
-            const hasUsersRead = normalizedUser.role.permissions.includes("users.read");
-            const hasAccountingRead = normalizedUser.role.permissions.includes("accounting.read");
-            
-            if (normalizedUser.role.name?.toLowerCase() === "supervisor" && hasUsersRead) {
-              console.error(`[AUTH_STORE] ❌ ERROR: Supervisor should NOT have 'users.read' permission!`);
-            }
-            if (normalizedUser.role.name?.toLowerCase() === "operator" && hasAccountingRead) {
-              console.error(`[AUTH_STORE] ❌ ERROR: Operator should NOT have 'accounting.read' permission!`);
-            }
-            
-            if (normalizedUser.role.permissions.length === 0) {
-              console.warn(`[AUTH_STORE] ⚠️ WARNING: No permissions in login response for ${normalizedUser.email}`);
-              console.warn(`[AUTH_STORE] ⚠️ This may cause issues with ACL checks in the frontend`);
-            }
-          }
-
-          // Store in localStorage - guardar tanto "access_token" como "token" para compatibilidad
-          if (typeof window !== "undefined") {
-            localStorage.setItem("access_token", access_token);
-            localStorage.setItem("token", access_token); // También guardar como "token" para compatibilidad
-            localStorage.setItem("refresh_token", refresh_token);
-            localStorage.setItem("user", JSON.stringify(normalizedUser));
-          }
-
-          // Update Zustand with immutable set
-          set((state) => {
-            return {
-              ...state,
-              user: normalizedUser,
-              token: access_token,
-              refreshToken: refresh_token,
-              isAuthenticated: true,
-              status: "authenticated" as AuthStatus,
-            };
+          if (process.env.NODE_ENV !== 'production') console.log('[AUTH] Enviando login a /api/auth/login...');
+          const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
           });
+          if (process.env.NODE_ENV !== 'production') console.log('[AUTH] Status:', res.status);
 
-          return normalizedUser;
-        } catch (error) {
-          // On error, clear state
+          if (!res.ok) {
+            const errText = await res.text().catch(() => '');
+            console.error('[AUTH] Login fallo (status ' + res.status + '):', errText);
+            set((state) => ({
+              ...state,
+              user: null, token: null, refreshToken: null,
+              isAuthenticated: false,
+              status: 'unauthenticated' as AuthStatus,
+            }));
+            return null;
+          }
+
+          const data = await res.json();
+          if (process.env.NODE_ENV !== 'production') console.log('[AUTH] Login OK. Tokens recibidos.');
+
+          const access_token = data.access_token || data.accessToken;
+          const refresh_token = data.refresh_token || data.refreshToken || access_token;
+          const rawUser = data.user || data.data || data;
+
+          // Construir user minimo sin invocar normalizadores
+          const rawRole = (rawUser && rawUser.role) || {};
+          const permArr = Array.isArray(rawRole.permissions)
+            ? rawRole.permissions
+            : (rawRole.permissions && typeof rawRole.permissions === 'object'
+                ? Object.entries(rawRole.permissions).flatMap(([m, a]) =>
+                    Array.isArray(a) ? a.map((x) => m + '.' + x) : [])
+                : []);
+
+          const safeUser: any = {
+            id: rawUser?.id,
+            email: rawUser?.email || email,
+            fullName: rawUser?.fullName || '',
+            isActive: rawUser?.isActive ?? true,
+            role: {
+              id: rawRole.id,
+              name: rawRole.name || 'direction',
+              permissions: permArr,
+            },
+            roleId: rawRole.id || null,
+            organization: rawUser?.organization || null,
+            organizationId: rawUser?.organizationId || rawUser?.organization?.id || null,
+          };
+
+          if (typeof window !== 'undefined') {
+            try {
+              localStorage.setItem('access_token', access_token);
+              localStorage.setItem('token', access_token);
+              localStorage.setItem('refresh_token', refresh_token);
+              localStorage.setItem('user', JSON.stringify(safeUser));
+            } catch (e) {
+              console.warn('[AUTH] localStorage error (ignored):', e);
+            }
+          }
+
           set((state) => ({
             ...state,
-            user: null,
-            token: null,
-            refreshToken: null,
+            user: safeUser,
+            token: access_token,
+            refreshToken: refresh_token,
+            isAuthenticated: true,
+            status: 'authenticated' as AuthStatus,
+          }));
+
+          if (process.env.NODE_ENV !== 'production') console.log('[AUTH] Login completado. Redirigiendo...');
+          return safeUser;
+        } catch (err) {
+          console.error('[AUTH] Excepcion durante login:', err);
+          set((state) => ({
+            ...state,
+            user: null, token: null, refreshToken: null,
             isAuthenticated: false,
-            status: "unauthenticated" as AuthStatus,
+            status: 'unauthenticated' as AuthStatus,
           }));
           return null;
         }
