@@ -41,9 +41,20 @@ export function normalizeUser(rawUser: unknown): AuthUser | null {
   // Preservar permissions explícitas del backend
   let permissions: string[] = [];
   const role = user.role as Record<string, unknown> | undefined;
-  if (role?.permissions && Array.isArray(role.permissions)) {
-    // Filtrar solo strings válidos
-    permissions = role.permissions.filter((p: unknown) => typeof p === "string" && p.length > 0);
+  if (role?.permissions) {
+    if (Array.isArray(role.permissions)) {
+      // Caso 1: array de strings ya en formato "module.action"
+      permissions = role.permissions.filter((p) => typeof p === "string" && p.length > 0);
+    } else if (typeof role.permissions === "object") {
+      // Caso 2: objeto { module: ["action1", "action2"], ... } del backend
+      // Lo aplanamos a ["module.action1", "module.action2", ...]
+      permissions = Object.entries(role.permissions).flatMap(([moduleName, actions]) => {
+        if (!Array.isArray(actions)) return [];
+        return actions
+          .filter((a) => typeof a === "string")
+          .map((a) => `${moduleName}.${a}`);
+      });
+    }
   }
   // Si el backend no envía permissions, el array queda vacío (pero existe)
 
