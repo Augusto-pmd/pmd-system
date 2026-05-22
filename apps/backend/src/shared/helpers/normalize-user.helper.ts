@@ -273,8 +273,8 @@ export function normalizeUser(u: User): NormalizedUser {
     organization: u.organization
       ? { id: u.organization.id, name: u.organization.name }
       : null,
-    ...(u.created_at ? { created_at: u.created_at } : {}),
-    ...(u.updated_at ? { updated_at: u.updated_at } : {}),
+    ...(u.createdAt ? { created_at: u.createdAt } : {}),
+    ...(u.updatedAt ? { updated_at: u.updatedAt } : {}),
   };
 }
 

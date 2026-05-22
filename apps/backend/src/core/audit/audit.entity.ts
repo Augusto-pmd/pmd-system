@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from 'typeorm';
-import { User } from '../core/users/user.entity';
+import { User } from '../users/user.entity';
 
 @Entity('audit_logs')
 export class Audit {
@@ -27,3 +27,6 @@ export class Audit {
   @CreateDateColumn({ name: 'created_at' })
   timestamp: Date;
 }
+
+// Backward compatibility alias
+export { Audit as AuditLog };

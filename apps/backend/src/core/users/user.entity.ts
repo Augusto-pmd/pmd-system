@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Role } from '../roles/role.entity';
-import { Organization } from '../core/organizations/organization.entity';
+import { Organization } from '../organizations/organization.entity';
 
 @Entity('users')
 export class User {

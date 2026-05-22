@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdminResetController } from './admin-reset.controller';
-import { User } from ../core/users/user.entity';
+import { User } from './core/users/user.entity';
 import { Role } from './core/roles/role.entity';
 
 @Module({

@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import { UnauthorizedException, ConflictException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { AuthService } from './auth.service';
-import { User } from '../core/users/user.entity';
+import { User } from '../users/user.entity';
 import { Role } from '../roles/role.entity';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';

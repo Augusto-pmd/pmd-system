@@ -11,7 +11,7 @@ import { ScheduleModule as NestScheduleModule } from '@nestjs/schedule';
 import { CsrfGuard } from './shared/guards/csrf.guard';
 import { XssSanitizeInterceptor } from './shared/interceptors/xss-sanitize.interceptor';
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from ../core/auth/auth.module';
+import { AuthModule } from './core/auth/auth.module';
 import { UsersModule } from './core/users/users.module';
 import { RolesModule } from './core/roles/roles.module';
 import { AuditModule } from './core/audit/audit.module';

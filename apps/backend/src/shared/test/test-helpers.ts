@@ -12,8 +12,8 @@ export const createMockUser = (overrides?: any): User => {
   defaultRole.name = UserRole.DIRECTION;
   defaultRole.description = 'Test role';
   defaultRole.permissions = [];
-  defaultRole.created_at = new Date();
-  defaultRole.updated_at = new Date();
+  defaultRole.createdAt = new Date();
+  defaultRole.updatedAt = new Date();
 
   // If overrides contains a partial role, merge it with default role
   let role = defaultRole;
@@ -26,8 +26,8 @@ export const createMockUser = (overrides?: any): User => {
       if (!role.id) role.id = 'role-id';
       if (!role.description) role.description = 'Test role';
       if (!role.permissions) role.permissions = [];
-      if (!role.created_at) role.created_at = new Date();
-      if (!role.updated_at) role.updated_at = new Date();
+      if (!role.createdAt) role.createdAt = new Date();
+      if (!role.updatedAt) role.updatedAt = new Date();
     }
   }
 
@@ -38,8 +38,8 @@ export const createMockUser = (overrides?: any): User => {
   user.password = 'hashedPassword';
   user.isActive = overrides?.isActive !== undefined ? overrides.isActive : true;
   user.role = role;
-  user.created_at = new Date();
-  user.updated_at = new Date();
+  user.createdAt = new Date();
+  user.updatedAt = new Date();
 
   // Apply other overrides but preserve the role we just set
   const { role: _, ...otherOverrides } = overrides || {};
@@ -51,8 +51,8 @@ export const createMockRole = (overrides?: Partial<Role>): Role => {
   role.id = overrides?.id || 'role-id';
   role.name = overrides?.name || UserRole.DIRECTION;
   role.description = overrides?.description || 'Test role';
-  role.created_at = new Date();
-  role.updated_at = new Date();
+  role.createdAt = new Date();
+  role.updatedAt = new Date();
 
   return { ...role, ...overrides };
 };
