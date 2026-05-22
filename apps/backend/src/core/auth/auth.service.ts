@@ -23,10 +23,46 @@ export class AuthService {
     return null;
   }
 
+  // Para JwtStrategy: busca usuario por payload del token (no requiere password)
+  async validateUserByPayload(payload: JwtPayload): Promise<any> {
+    const user = await this.usersService.findByEmail(payload.email);
+    if (!user) return null;
+    const { password, ...result } = user;
+    return result;
+  }
+
+  // Stub: bootstrap del admin (lo hace el seed, este endpoint es no-op)
+  async ensureAdminUser(): Promise<void> {
+    return;
+  }
+
   async login(user: any) {
     const payload: JwtPayload = { email: user.email, sub: user.id };
+    const accessToken = this.jwtService.sign(payload);
+    const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
+
+    // Estructura completa que espera el frontend
     return {
-      accessToken: this.jwtService.sign(payload),
+      access_token: accessToken,
+      refresh_token: refreshToken,
+      accessToken,
+      refreshToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        fullName: user.fullName,
+        isActive: user.isActive,
+        role: user.role ? {
+          id: user.role.id,
+          name: user.role.name,
+          permissions: user.role.permissions || [],
+        } : null,
+        organization: user.organization ? {
+          id: user.organization.id,
+          name: user.organization.name,
+        } : null,
+        organizationId: user.organizationId,
+      },
     };
   }
 
