@@ -57,19 +57,20 @@ export class AuditInterceptor implements NestInterceptor {
           const deviceInfo = this.extractDeviceInfo(userAgent);
 
           const auditLog = this.auditLogRepository.create({
-            user_id: user?.id || null,
-            action,
-            module,
-            entity_id: entityId,
-            entity_type: entityType,
-            previous_value: previousValue,
-            new_value: newValue,
-            ip_address: ipAddress,
-            user_agent: userAgent,
-            device_info: deviceInfo,
-            criticality,
-            // Store organizationId in metadata if audit entity supports it
-            ...(organizationId && { metadata: { organizationId } }),
+            entity: entityType || 'unknown',
+            entityId: entityId || '',
+            action: action || 'unknown',
+            oldValues: previousValue ? { value: previousValue } : null,
+            newValues: {
+              value: newValue,
+              module,
+              ipAddress,
+              userAgent,
+              deviceInfo,
+              criticality,
+              ...(organizationId && { organizationId }),
+            },
+            user: user?.id ? ({ id: user.id } as any) : null,
           });
 
           await this.auditLogRepository.save(auditLog);

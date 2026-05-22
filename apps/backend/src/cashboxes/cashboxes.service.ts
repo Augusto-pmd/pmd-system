@@ -370,7 +370,17 @@ export class CashboxesService {
       });
     } catch (error) {
       await queryRunner.rollbackTransaction();
-      this.logger.error('Error refilling cashbox', error);
+      // Loguear stack completo para diagnostico
+      this.logger.error(
+        `Error refilling cashbox ${id}: ${error?.message || error}`,
+        error?.stack,
+      );
+      // En desarrollo devolver detalle del error en la response
+      if (process.env.NODE_ENV === 'development') {
+        throw new BadRequestException(
+          `Refill failed: ${error?.message || 'unknown error'}`,
+        );
+      }
       throw error;
     } finally {
       await queryRunner.release();
