@@ -1,16 +1,10 @@
-
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { databaseConfig } from './config/database.config';
 
-// Load environment variables from .env file for the CLI.
+// Cargar variables de entorno desde .env
 config();
-
-// The TypeORM CLI needs a single, exported DataSource instance.
-// We use our unified 'databaseConfig' function to create it.
-// This ensures that the CLI and the application use the exact same
-// connection settings, derived consistently from DATABASE_URL.
 
 const configService = new ConfigService();
 const typeOrmConfig = databaseConfig(configService);
@@ -21,7 +15,9 @@ if (!typeOrmConfig) {
 
 export default new DataSource({
   ...typeOrmConfig,
-  // CLI needs to know where to find entities, which might not be loaded automatically.
-  // Pointing to the source ensures it can find them before compilation.
-  entities: ['apps/backend/src/**/*.entity.ts'],
+  // FIX 1: path absoluto que funciona desde cualquier cwd
+  entities: [__dirname + '/**/*.entity.ts'],
+  // FIX 2: solo en dev local crea tablas automáticamente. En produccion (Render
+  // u otro) siempre debe ser false para evitar que TypeORM sobreescriba el schema.
+  synchronize: process.env.NODE_ENV !== 'production',
 } as DataSourceOptions);

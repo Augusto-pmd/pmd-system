@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import { User } from '../core/users/user.entity';
-import { Role } from '../roles/role.entity';
+import { Role } from '../core/roles/role.entity';
 import { Organization } from '../core/organizations/organization.entity';
 import { UserRole } from '../shared/enums/user-role.enum';
 import * as bcrypt from 'bcrypt';
